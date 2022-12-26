@@ -1,0 +1,40 @@
+@use 'sass:math';
+
+// font-size rem(30);
+// Throw an error if the parameter has a unit
+@function rem($pixel) {
+  // divide $pixel by 16 to return rems
+  @if math.is-unitless($pixel) {
+    @return math.div($pixel, 16) + rem;
+  } @else {
+    // if $pixel has an unit, throw an error
+    @error 'Don\'t use units when using the rem() function; only number! ';
+  }
+}
+
+// 700px, 900px, 1440px
+// Sass Map
+$breakpoints-up: (
+  'medium': rem(700),
+  'large': rem(900),
+  'x-large': rem(1440),
+);
+
+// 699px, 899px, 1439px
+$breakpoints-down: (
+  'small': rem(699),
+  'medium': rem(899),
+  'large': rem(1439),
+);
+
+@mixin breakpoint-up($size) {
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
+}
