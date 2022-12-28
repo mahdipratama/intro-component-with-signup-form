@@ -81,11 +81,13 @@ a:active {
   &__button {
     font-size: rem(16);
     padding: rem(20) rem(77);
+    width: 100%;
     background-color: var(--blue);
     border-radius: rem(9);
     border: none;
     line-height: 1.4;
     box-shadow: var(--box-shadow);
+    cursor: pointer;
 
     &-link {
       font-weight: 400;
@@ -99,20 +101,33 @@ a:active {
 
 .container {
   background-color: var(--white);
-  padding: rem(20) rem(23);
+  padding: rem(22) rem(23);
   border-radius: rem(9);
   box-shadow: var(--box-shadow);
 
   & .form {
     display: flex;
     flex-direction: column;
-    gap: 23px;
+    gap: rem(20);
   }
 
   & .form__control {
     position: relative;
     height: rem(58);
-    // margin-bottom: 23px;
+
+    // showing for error and success form
+    &.success .text__input {
+      border: 2px solid var(--green);
+    }
+
+    &.error .text__input {
+      border: 2px solid var(--red);
+    }
+
+    &.error .error-message,
+    &.error .error-icon {
+      visibility: visible;
+    }
 
     & .text__input {
       font-size: rem(16);
@@ -157,16 +172,21 @@ a:active {
       padding: 0 2px;
       z-index: 1;
       color: var(--dark-blue);
+    }
 
-      &::before {
-        content: '';
-        position: absolute;
-        height: 5px;
-        left: 0;
-        top: 10px;
-        width: 100%;
-        z-index: -1;
-      }
+    & .error-icon {
+      position: absolute;
+      right: 20px;
+      top: 15px;
+      visibility: hidden;
+    }
+
+    & .error-message {
+      display: block;
+      text-align: right;
+      font-size: rem(12);
+      color: var(--red);
+      visibility: hidden;
     }
   }
 

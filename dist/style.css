@@ -77,11 +77,13 @@ a:active {
 .cta__button {
   font-size: 1rem;
   padding: 1.25rem 4.8125rem;
+  width: 100%;
   background-color: var(--blue);
   border-radius: 0.5625rem;
   border: none;
   line-height: 1.4;
   box-shadow: var(--box-shadow);
+  cursor: pointer;
 }
 .cta__button-link {
   font-weight: 400;
@@ -92,18 +94,27 @@ a:active {
 
 .container {
   background-color: var(--white);
-  padding: 1.25rem 1.4375rem;
+  padding: 1.375rem 1.4375rem;
   border-radius: 0.5625rem;
   box-shadow: var(--box-shadow);
 }
 .container .form {
   display: flex;
   flex-direction: column;
-  gap: 23px;
+  gap: 1.25rem;
 }
 .container .form__control {
   position: relative;
   height: 3.625rem;
+}
+.container .form__control.success .text__input {
+  border: 2px solid var(--green);
+}
+.container .form__control.error .text__input {
+  border: 2px solid var(--red);
+}
+.container .form__control.error .error-message, .container .form__control.error .error-icon {
+  visibility: visible;
 }
 .container .form__control .text__input {
   font-size: 1rem;
@@ -163,14 +174,18 @@ a:active {
   z-index: 1;
   color: var(--dark-blue);
 }
-.container .form__control .label::before {
-  content: "";
+.container .form__control .error-icon {
   position: absolute;
-  height: 5px;
-  left: 0;
-  top: 10px;
-  width: 100%;
-  z-index: -1;
+  right: 20px;
+  top: 15px;
+  visibility: hidden;
+}
+.container .form__control .error-message {
+  display: block;
+  text-align: right;
+  font-size: 0.75rem;
+  color: var(--red);
+  visibility: hidden;
 }
 .container .form__btn {
   font-size: 1rem;
