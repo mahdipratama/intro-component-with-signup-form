@@ -143,8 +143,8 @@ a:active {
         border: 2px solid var(--dark-blue);
       }
 
-      // Transition labels slide up
-      &:valid ~ .label,
+      // floating labels when its filled
+      &:not(:placeholder-shown) ~ .label,
       &:focus ~ .label {
         top: -10px;
         color: var(--dark-blue);

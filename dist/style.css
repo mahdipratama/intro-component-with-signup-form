@@ -129,7 +129,19 @@ a:active {
 .container .form__control .text__input:focus {
   border: 2px solid var(--dark-blue);
 }
-.container .form__control .text__input:valid ~ .label, .container .form__control .text__input:focus ~ .label {
+.container .form__control .text__input:not(:-moz-placeholder-shown) ~ .label {
+  top: -10px;
+  color: var(--dark-blue);
+  background-color: var(--white);
+  font-size: 15px;
+}
+.container .form__control .text__input:not(:-ms-input-placeholder) ~ .label {
+  top: -10px;
+  color: var(--dark-blue);
+  background-color: var(--white);
+  font-size: 15px;
+}
+.container .form__control .text__input:not(:placeholder-shown) ~ .label, .container .form__control .text__input:focus ~ .label {
   top: -10px;
   color: var(--dark-blue);
   background-color: var(--white);
