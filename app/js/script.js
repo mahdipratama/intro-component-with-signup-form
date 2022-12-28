@@ -16,6 +16,7 @@ function showError(input, message) {
 function showSuccess(input) {
   const formControl = input.parentElement;
   formControl.classList.add('success');
+  formControl.classList.remove('error');
 }
 
 // Check email is valid
@@ -43,7 +44,7 @@ form.addEventListener('submit', function (e) {
 
   if (email.value === '') {
     -
-    showError(email, 'Email is required');
+      showError(email, 'Email is required');
   } else if (!isValidEmail(email.value)) {
     showError(email, 'Email is not valid');
   } else {
