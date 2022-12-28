@@ -100,6 +100,8 @@ a:active {
 .container {
   background-color: var(--white);
   padding: rem(20) rem(23);
+  border-radius: rem(9);
+  box-shadow: var(--box-shadow);
 
   & .form {
     display: flex;
@@ -141,12 +143,6 @@ a:active {
         transition: all 0.3s;
       }
 
-      &::placeholder {
-        font-size: 16px;
-        opacity: 0;
-        transition: all 0.3s;
-      }
-
       &:focus::placeholder {
         opacity: 1;
         animation-delay: 0.2s;
@@ -160,7 +156,7 @@ a:active {
       transition: all 0.2s;
       padding: 0 2px;
       z-index: 1;
-      // color: var(--blue);
+      color: var(--dark-blue);
 
       &::before {
         content: '';
@@ -170,6 +166,34 @@ a:active {
         top: 10px;
         width: 100%;
         z-index: -1;
+      }
+    }
+  }
+
+  .form__btn {
+    font-size: rem(16);
+    font-weight: 600;
+    color: var(--white);
+    background-color: var(--green);
+    text-transform: uppercase;
+    border: none;
+    border-radius: rem(7);
+    padding: rem(19.5);
+    box-shadow: hsla(154, 59%, 45%) 0px 5px 0px 0px;
+    cursor: pointer;
+  }
+
+  .form__terms {
+    font-size: rem(12);
+    text-align: center;
+    color: var(--gray-blue);
+
+    &-bold {
+      color: var(--red);
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: underline;
       }
     }
   }
