@@ -19,6 +19,7 @@ function showSuccess(input) {
   formControl.classList.remove('error');
 }
 
+
 // Check email is valid
 function checkEmail(input) {
   const regex =
@@ -35,8 +36,18 @@ function checkEmail(input) {
 function checkRequired(inputArr) {
   // Loop through the array, then do the check on each one.
   inputArr.forEach(function (input) {
+
+    // to Check is input are empty or not
     if (input.value.trim() === '') {
       showError(input, `${getFieldName(input)} is required`);
+
+      // pass a function to check input whether meet certain requirements or not   
+    } else if (checkLength && checkEmail) {
+      checkLength(firstName, 5, 15);
+      checkLength(lastName, 5, 15);
+      checkLength(password, 8, 20);
+      checkEmail(email)
+      // Showing success when all inputs are meet certain requirements
     } else {
       showSuccess(input);
     }
@@ -68,12 +79,4 @@ form.addEventListener('submit', function (e) {
 
   // Check each input 
   checkRequired([firstName, lastName, email, password]);
-
-  // Check length
-  checkLength(firstName, 5, 15);
-  checkLength(lastName, 5, 15);
-  checkLength(password, 6, 20);
-
-  checkEmail(email);
-
 });
