@@ -25,11 +25,15 @@ body {
 
 main {
   display: grid;
-  grid-template-rows: -webkit-max-content -webkit-max-content auto;
-  grid-template-rows: max-content max-content auto;
-  max-width: 31.25rem;
-  min-height: 100vh;
-  margin: 5.6875rem 1.25rem;
+}
+@media (max-width: 77.75rem) {
+  main {
+    grid-template-rows: -webkit-max-content -webkit-max-content auto;
+    grid-template-rows: max-content max-content auto;
+    max-width: 31.25rem;
+    min-height: 100vh;
+    margin: 5.6875rem 1.25rem;
+  }
 }
 
 h1,
@@ -222,4 +226,38 @@ a:active {
 }
 .container .form__terms-bold:hover {
   text-decoration: underline;
+}
+
+@media (min-width: 77.5rem) {
+  body {
+    background-image: url("/images/bg-intro-desktop.png");
+    background-position: center center;
+    background-repeat: repeat;
+    background-size: contain;
+  }
+  body main {
+    max-width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+    -moz-column-gap: 3rem;
+         column-gap: 3rem;
+    margin: 7.375rem 10.3125rem;
+  }
+  body main .intro {
+    grid-row: span 2;
+    align-self: center;
+    text-align: left;
+  }
+  body main .intro__title {
+    font-size: 3.1875rem;
+  }
+  body main .intro__subtitle {
+    font-size: 1.0625rem;
+  }
+  body main .cta {
+    max-width: 34rem;
+  }
+  body main .container {
+    max-width: 34rem;
+    min-height: 29.75rem;
+  }
 }/*# sourceMappingURL=style.css.map */

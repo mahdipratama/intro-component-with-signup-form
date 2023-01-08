@@ -25,10 +25,12 @@ body {
 
 main {
   display: grid;
-  grid-template-rows: max-content max-content auto;
-  max-width: rem(500);
-  min-height: 100vh;
-  margin: rem(91) rem(20);
+  @include breakpoint-down(large) {
+    grid-template-rows: max-content max-content auto;
+    max-width: rem(500);
+    min-height: 100vh;
+    margin: rem(91) rem(20);
+  }
 }
 
 h1,
@@ -214,6 +216,46 @@ a:active {
 
       &:hover {
         text-decoration: underline;
+      }
+    }
+  }
+}
+
+// Desktop
+body {
+  @include breakpoint-up(x-large) {
+    background-image: url('/images/bg-intro-desktop.png');
+    background-position: center center;
+    background-repeat: repeat;
+    background-size: contain;
+
+    main {
+      max-width: 100%;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: rem(48);
+      margin: rem(118) rem(165);
+
+      .intro {
+        grid-row: span 2;
+        align-self: center;
+        text-align: left;
+
+        &__title {
+          font-size: rem(51);
+        }
+
+        &__subtitle {
+          font-size: rem(17);
+        }
+      }
+
+      .cta {
+        max-width: rem(544);
+      }
+
+      .container {
+        max-width: rem(544);
+        min-height: rem(476);
       }
     }
   }
